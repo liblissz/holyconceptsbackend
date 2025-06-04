@@ -1,0 +1,53 @@
+// npm init
+// npm install express
+// npm install jsonwebtoken
+//  npm install mongoose
+//  npm install multer(store images)
+//  npm install cors(to add permission to admins)
+
+// npm install dotenv
+// npm install bcrypt
+
+
+
+
+
+
+
+
+
+
+
+
+ // const port = 4000
+// const express = require("express");
+// const app = express();
+// const mongoose = require("mongoose");
+// const jwt = require("jsonwebtoken");
+// const multer = require("multer");
+// //server token
+// const path = require("path");
+// const cors = require("cors");
+
+
+
+// app.use(express.json());
+// app.use(cors())
+
+// //database connection
+
+// mongoose.connect("mongodb+srv://liblissz:goldblissz@3@cluster0.czzy4af.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
+
+// //API creation
+// app.get("/", (req,res)=>{
+//      res.send("express app is running")
+// })
+
+// app.listen(port, (error)=>{
+// if(!error){
+//     console.log("server runing on port "+ port)
+// }else{
+//     console.log("error: "+error)
+// }
+// })
