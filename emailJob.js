@@ -1,5 +1,5 @@
 const cron = require('node-cron');
-const Subscriber = require('./models/Subscriber');
+// const Subscriber = require('./models/Subscriber');
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 
 require('dotenv').config();

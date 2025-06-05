@@ -429,6 +429,13 @@ app.listen(port, (error) => {
 });
 
 
+// index.js
+
+require('./server');
+require('./notification');
+require('./emailJob');
+
+console.log("All backend services started.");
 
 
 

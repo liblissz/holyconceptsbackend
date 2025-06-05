@@ -1,22 +1,16 @@
-#Sample Dockerfile for NodeJS Apps
-
 FROM node:20.16.0
 
 ENV NODE_ENV=production
 
 WORKDIR /holybackend
 
-COPY ["package*.json", "package-lock.json*", "./"]
+COPY ["package*.json", "./"]
 
-RUN npm install 
+RUN npm install
 
 COPY . .
 
-EXPOSE 4000
+# Expose the port you use in your main file (Render sets process.env.PORT)
 EXPOSE 2000
-EXPOSE 3000
-CMD [ "node", "index.js" ]
-CMD [ "node", "server.js" ]
-CMD [ "node", "notification.js" ]
-CMD [ "node", "emailJob.js" ]
 
+CMD ["node", "index.js"]
