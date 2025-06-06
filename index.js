@@ -45,7 +45,7 @@ app.use('/images', express.static('upload/images'));
 
 app.post('/upload', upload.single('product'), (req, res) => {
   if (req.file) {
-    res.json({ success: true, img_url: 'http://localhost:2000/images/' + req.file.filename });
+    res.json({ success: true, img_url: 'https://holyconceptsbackend.onrender.com/images/' + req.file.filename });
   } else {
     res.json({ success: false });
   }
