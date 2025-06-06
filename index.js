@@ -7,8 +7,8 @@ const path = require("path");
 const { type } = require("os");
 const { stringify } = require("querystring");
 const app = express();
-const port = process.env.PORT ||  2000;
-
+const port =   2000;
+//process.env.PORT ||
 // Middlewares
 app.use(express.json());
 app.use(cors());
