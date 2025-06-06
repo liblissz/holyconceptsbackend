@@ -4,7 +4,7 @@ const cors = require("cors");
 const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // MIDDLEWARES
 app.use(cors());
