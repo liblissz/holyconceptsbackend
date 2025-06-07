@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 // });
 
 
-const multer = require('multer');
+
 const { v2: cloudinary } = require('cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 require('dotenv').config();
