@@ -28,28 +28,79 @@ app.get("/", (req, res) => {
 
 //image storage engine
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req,file,cb)=>{
-  return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: './upload/images',
+//     filename: (req,file,cb)=>{
+//   return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//     }
+// })
 
-const upload = multer({storage:storage})
+// const upload = multer({storage:storage})
 
-//creating upload end point for images
-app.use('/images', express.static('upload/images'));
-
-
+// //creating upload end point for images
+// app.use('/images', express.static('upload/images'));
 
 
+
+
+// app.post('/upload', upload.single('product'), (req, res) => {
+//   if (req.file) {
+//     res.json({ success: true, img_url: 'https://holyconceptsbackend.onrender.com/images/' + req.file.filename });
+//   } else {
+//     res.json({ success: false });
+//   }
+// });
+
+
+const multer = require('multer');
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+require('dotenv').config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Set up Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'holy-concepts-images', // Cloudinary folder
+    allowed_formats: ['jpg', 'jpeg', 'png'], // Optional, ensures image formats
+    transformation: [{ width: 800, height: 600, crop: 'limit' }], // Optional resize
+  },
+});
+
+// Multer middleware
+const upload = multer({ storage: storage });
+
+// Image upload endpoint
 app.post('/upload', upload.single('product'), (req, res) => {
-  if (req.file) {
-    res.json({ success: true, img_url: 'https://holyconceptsbackend.onrender.com/images/' + req.file.filename });
+  if (req.file && req.file.path) {
+    res.status(200).json({
+      success: true,
+      message: 'Image uploaded successfully',
+      img_url: req.file.path,
+    });
   } else {
-    res.json({ success: false });
+    res.status(400).json({
+      success: false,
+      message: 'Image upload failed',
+    });
   }
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
