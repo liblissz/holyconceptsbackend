@@ -4,7 +4,7 @@ const cors = require("cors");
 const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 const app = express();
-const PORT =  4000;
+const PORT = 4000;
 
 // MIDDLEWARES
 app.use(cors());
@@ -25,7 +25,7 @@ const Newsletter = mongoose.model("Newsletter", NewsletterSchema);
 // BREVO API CONFIG
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = "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"; // << Replace with your own Brevo API key
+apiKey.apiKey = "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"; // << Replace with your own Brevo API key
 
 const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
