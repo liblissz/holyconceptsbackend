@@ -25,8 +25,7 @@ const Newsletter = mongoose.model("Newsletter", NewsletterSchema);
 // BREVO API CONFIG
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = "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"; // << Replace with your own Brevo API key
-
+apiKey.apiKey = "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";
 const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 // ✅ API ROUTE: Subscribe Email
