@@ -13,7 +13,9 @@ require('dotenv').config();
 const sendEmails = async () => {
   const defaultClient = SibApiV3Sdk.ApiClient.instance;
   const apiKey = defaultClient.authentications['api-key'];
-  apiKey.apiKey =   "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"
+  apiKey.apiKey =  apiKey.apiKey = process.env.SIB_API_KEY;
+
+   
 
   const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
   const subscribers = await Subscriber.find();
@@ -21,7 +23,7 @@ const sendEmails = async () => {
   for (const user of subscribers) {
     const sendSmtpEmail = {
       to: [{ email: user.email }],
-      sender: { name: 'HOLY CONCEPTS STUDIO', email: 'liblissz3@.com' },
+      sender: { name: 'HOLY CONCEPTS STUDIO', email: 'liblissz3@gmail.com' },
       subject: '🚀 Get the latest updates from us!',
       htmlContent: `
       <!DOCTYPE html>
