@@ -7,7 +7,7 @@ require('dotenv').config();
 const sendEmails = async () => {
   const defaultClient = SibApiV3Sdk.ApiClient.instance;
   const apiKey = defaultClient.authentications['api-key'];
-  apiKey.apiKey = "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"
+  apiKey.apiKey = "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"
 
   // process.env.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;
 
