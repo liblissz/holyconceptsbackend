@@ -484,7 +484,7 @@ app.listen(port, (error) => {
 
 require('./server');
 require('./notification');
-require('./emailJob');
+// require('./emailJob');
 
 console.log("All backend services started.");
 
